@@ -12,7 +12,7 @@ define([
                     SystemJS.import(templateConfig.systemjs)
                         .then( function( comp ) {
                             console.log( "loaded", comp );
-                            var createViewModel = comp.createViewModel ? comp.createViewModel : function(params, componentInfo){ return comp.viewModel(params, componentInfo); }
+                            var createViewModel = comp.viewModel.createViewModel ? comp.viewModel.createViewModel : function(params, componentInfo){ return comp.viewModel(params, componentInfo); }
                             callback({
                                 createViewModel: createViewModel,
                                 template: ko.utils.parseHtmlFragment( comp.template )
