@@ -7,11 +7,11 @@ define([
     var systemJSloader = {
         loadComponent: function(componentName, templateConfig, callback){
             if( templateConfig.systemjs ) {
-                console.log( "load", templateConfig.systemjs );
+                // console.log( "load", templateConfig.systemjs );
                 if( SystemJS ) {
                     SystemJS.import(templateConfig.systemjs)
                         .then( function( comp ) {
-                            console.log( "loaded", comp );
+                            // console.log( "loaded", comp );
                             var createViewModel = comp.viewModel.createViewModel ? comp.viewModel.createViewModel : function(params, componentInfo){ return new comp.viewModel(params, componentInfo); }
                             callback({
                                 createViewModel: createViewModel,
